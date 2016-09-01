@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-class Note extends React.Component {
-  render() {
-    return (
-      <div className="well">
-        <h4>Note 1</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-      </div>
-    );
-  }
+const Note = ({ onClick, title, content }) => (
+  <div
+    className="well"
+    onClick={onClick}
+  >
+    <h4>{title}</h4>
+    <p>{content}</p>
+  </div>
+);
+
+Note.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
 }
 
 export default Note;

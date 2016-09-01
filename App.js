@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import noteApp from './reducers'
 
 import NewNote from './components/NewNote.js';
-import ListNotes from './components/ListNotes.js';
+import VisibleNotes from './containers/visibleNotes.js';
 
 class App extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class App extends React.Component {
         </div>
         <div className="col-md-8">
           <h1>List Notes</h1>
-          <ListNotes />
+          <VisibleNotes />
         </div>
       </div>
     );
