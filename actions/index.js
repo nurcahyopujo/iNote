@@ -7,3 +7,19 @@ export const newNote = (title, content) => {
     content
   }
 }
+
+export const editNote = (id, title, content) => {
+  return {
+    type: 'EDIT_NOTE',
+    id,
+    title,
+    content
+  }
+}
+
+export const deleteNote = (id) => {
+  return {
+    type: 'DELETE_NOTE',
+    id,
+  }
+}

@@ -3,25 +3,14 @@ import { connect } from 'react-redux'
 
 import Note from './Note.js';
 
-// class ListNotes extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <Note />
-//         <Note />
-//         <Note />
-//       </div>
-//     );
-//   }
-// }
-
-const ListNotes = ({ notes, onNoteClick }) => (
+const ListNotes = ({ notes, onNoteDelete, onNoteEdit }) => (
   <div>
     {notes.map(note =>
       <Note
         key={note.id}
         {...note}
-        onClick={() => onNoteClick(note.id)}
+        onDelete={() => onNoteDelete(note.id)}
+        onEdit={() => onNoteEdit(note.id, note.title, note.content)}
       />
     )}
   </div>
@@ -33,7 +22,8 @@ ListNotes.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  onNoteClick: PropTypes.func.isRequired
+  onNoteDelete: PropTypes.func.isRequired,
+  onNoteEdit: PropTypes.func.isRequired
 }
 
 

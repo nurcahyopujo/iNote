@@ -1,17 +1,6 @@
 import { connect } from 'react-redux'
-// import { toggleTodo } from '../actions'
+import { deleteNote, editNote } from '../actions'
 import ListNotes from '../components/ListNotes'
-
-// const getVisibleTodos = (todos, filter) => {
-//   switch (filter) {
-//     case 'SHOW_ALL':
-//       return todos
-//     case 'SHOW_COMPLETED':
-//       return todos.filter(t => t.completed)
-//     case 'SHOW_ACTIVE':
-//       return todos.filter(t => !t.completed)
-//   }
-// }
 
 const mapStateToProps = (state) => {
   return {
@@ -22,9 +11,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onNoteClick: (id) => {
-      // dispatch(toggleTodo(id))
+    onNoteDelete: (id) => {
+      dispatch(deleteNote(id));
+    },
+    onNoteEdit: (id, title, content) => {
+      // dispatch(editNote(id, title, content));
+      //
       alert('coba');
+      console.log(id, title, content);
     }
   }
 }
